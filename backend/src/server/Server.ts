@@ -1,9 +1,13 @@
 import express from 'express';
+import { router } from './routes/index';
 
 const server = express();
 
-server.get('/teste', (_, res) => {
-  return res.send('Olá mundo');
-});
+// Faz com que o consteúdo da requisição seja enviado no formato Json
+server.use(express.json());
+
+// Usando as rotas
+server.use(router);
+
 
 export { server };
